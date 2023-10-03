@@ -26,7 +26,7 @@ const NavBar = () => {
         <Navbar.Toggle/>
         <Navbar.Collapse>
             <NavBar.Text>
-            <Nav.Link to="/" as={Link}>carts</Nav.Link>
+            <Nav.Link to="/" as={Link}>ca</Nav.Link>
           
                 
             </NavBar.Text>
