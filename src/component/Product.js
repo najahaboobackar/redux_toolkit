@@ -23,8 +23,8 @@ if(status=='loading'){
     return<div>Loading</div>
 }
 
-id(status=='error'){
-    return <p> something happens....!</p>
+if(status=='error'){
+    return <Alert key="danger" variant="danger"> something happens....!</Alert>
 }
     const addToCart=(Product)=>{
         dispatch(add(Product))
