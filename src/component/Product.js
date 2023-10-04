@@ -7,18 +7,25 @@ import Card from 'react-bootstrap/Card';
 import { useDispatch ,useSelector} from 'react-redux';
 import { add } from '../store/cartSlice';
 import { getProducts } from '../store/ProductSlice';
+import { Alert } from 'bootstrap';
 
 
 const Product = () => {
     const dispatch =useDispatch();
-    const{data:Products}=useSelector(state=>state.products);
+    const{data:Products,status}=useSelector(state=>state.products);
    
     useEffect(()=>{
         dispatch(getProducts())
         //fetch('https://fakestoreapi.com/products')
         //.then(data=>data.json()).then(result=>getProducts(result))
     },[]);
+if(status=='loading'){
+    return<div>Loading</div>
+}
 
+id(status=='error'){
+    return <Alert key="danger " variant="danger"> something happens....!</Alert>
+}
     const addToCart=(Product)=>{
         dispatch(add(Product))
 

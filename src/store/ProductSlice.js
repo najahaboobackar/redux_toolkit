@@ -14,7 +14,17 @@ const productSlice =createSlice({
         },
         extraReducers:(builder)=>{
            builder
-            .addCase
+           .addCase(getProducts.pending,(state,action)=>{
+            state.status='loading';
+
+           })
+            .addCase(getProducts.fulfilled,(state,action)=>{
+                state.data=action.payload;
+                state.status='idle';
+            })
+            .addCase(getProducts.rejected,(state,action)=>{
+                state.status='error';
+            })
 
         }
     }
